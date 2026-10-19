@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NexusOps — Project Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/pm.css">
+  <link rel="stylesheet" href="css/calender.css">
+  <link rel="stylesheet" href="css/reports.css">
+
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">BNB Innovations</div>
+        <div class="ver mono">Project Management</div>
+      </div>
+      <nav class="nav">
+        <div class="nav-section">Workspace</div>
+        <button class="nav-item active" data-page="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg> Overview
+        </button>
+        <button class="nav-item" data-page="tasks">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+          </svg> Task Tracker
+        </button>
+        <button class="nav-item" data-page="daily">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+            <path d="M9 16l2 2 4-4" />
+          </svg> Daily Sub-Tasks
+        </button>
+        <button class="nav-item" data-page="calender">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+          </svg>
+          Calendar
+        </button>
+        <button class="nav-item" data-page="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="6" y1="20" x2="6" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="6" />
+            <line x1="18" y1="20" x2="18" y2="14" />
+            <path d="M4 20h16" />
+          </svg>
+          Reports
+        </button>
+        </a>
+        <button class="nav-item" data-page="sprint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg> Sprint Planning
+        </button>
+        <div class="nav-section">Finance</div>
+        <button class="nav-item" data-page="budget">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23" />
+            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+          </svg> Budget
+        </button>
+        <div class="nav-section">People</div>
+        <button class="nav-item" data-page="departments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg> Departments
+        </button>
+        <button class="nav-item" data-page="team">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
+          </svg> Team
+        </button>
+        <div class="nav-section">Visualise</div>
+        <button class="nav-item" data-page="flow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="5" cy="12" r="2" />
+            <circle cx="19" cy="5" r="2" />
+            <circle cx="19" cy="19" r="2" />
+            <path d="M7 12h5a2 2 0 012 2v3m0-10v3a2 2 0 01-2 2H7" />
+          </svg> Process Flow
+        </button>
+        <button class="nav-item" data-page="arch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="2" width="6" height="4" rx="1" />
+            <rect x="2" y="18" width="6" height="4" rx="1" />
+            <rect x="9" y="18" width="6" height="4" rx="1" />
+            <rect x="16" y="18" width="6" height="4" rx="1" />
+            <path d="M12 6v4M12 10H5v4M12 10h7v4" />
+          </svg> Team Architecture
+        </button>
+      </nav>
+      <div class="sidebar-foot"><b id="live-date"></b><br>BNB Inovation</div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- OVERVIEW -->
+      <div class="page active" id="page-overview">
+        <div class="page-title grotesk">Mission Control</div>
+        <div class="page-sub">Live snapshot across all projects, people, and sprints.</div>
+        <div class="stats" id="ov-stats"></div>
+        <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-bottom:20px;">
+          <div class="gc" style="padding:18px;">
+            <div class="sec">
+              <h2>Projects</h2><span class="tag" id="proj-cnt"></span>
+            </div>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Dept</th>
+                    <th>Work Mode</th>
+                    <th>Progress</th>
+                    <th>Budget</th>
+                  </tr>
+                </thead>
+                <tbody id="ov-proj-body"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="gc" style="padding:18px;">
+            <div class="sec">
+              <h2>Department Load</h2>
+            </div>
+            <div id="dept-bars"></div>
+          </div>
+        </div>
+        <div class="gc" style="padding:18px;">
+          <div class="sec">
+            <h2>Recent Tasks</h2><span class="tag">Latest 5</span>
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Employee</th>
+                  <th>Stage</th>
+                  <th>Sprint</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="ov-task-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TASK TRACKER -->
+      <div class="page" id="page-tasks">
+        <div class="page-title grotesk">Task Tracker</div>
+        <div class="page-sub">One row per task — assign to an employee, project, sprint, and time slot.</div>
+        <div class="toolbar">
+          <button class="btn btn-p" id="btn-add-task"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M12 5v14M5 12h14" />
+            </svg> Add Task</button>
+          <button class="btn" id="btn-add-project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M12 5v14M5 12h14" />
+            </svg> Add Project</button>
+        </div>
+        <div class="filter-row" id="task-filters"></div>
+        <div class="gc">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Employee</th>
+                  <th>Dept</th>
+                  <th>Project</th>
+                  <th>Sprint</th>
+                  <th>Stage</th>
+                  <th>Prog</th>
+                  <th>Priority</th>
+                  <th>Work Mode</th>
+                  <th>Time Slot</th>
+                  <th>Due</th>
+                  <th>Status</th>
+                  <th>Sub-Tasks</th>
+                </tr>
+              </thead>
+              <tbody id="task-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAILY SUB-TASKS -->
+      <div class="page" id="page-daily">
+        <div class="page-title grotesk">Daily Sub-Tasks</div>
+        <div class="page-sub">Break every task into dated daily steps with estimated and actual hours.</div>
+        <div class="toolbar">
+          <button class="btn btn-p" id="btn-add-subtask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M12 5v14M5 12h14" />
+            </svg> Add Sub-Task</button>
+        </div>
+        <div class="filter-row" id="daily-filters"></div>
+        <div id="daily-root"></div>
+      </div>
+
+
+      <!-- CALENDAR PAGE -->
+      <div class="page" id="page-calender">
+        <div class="mycal-page-container" id="mycal-main-page">
+          <div class="page-title grotesk">Calendar</div>
+          <div class="page-sub">Schedule tasks and view project timelines.</div>
+
+          <button id="mycal-btn-toggle-mini" onclick="toggleCalender()">📅 Select Date</button>
+
+          <div class="mycal-layout-grid">
+            <!-- Sidebar Mini Calendar -->
+            <div class="mycal-sidebar-panel" id="mycal-mini-panel" style="display:none;">
+              <div class="mycal-mini-nav">
+                <button onclick="prevMonth()">◀️</button>
+                <h3 id="mycal-mini-month-year"></h3>
+                <button onclick="nextMonth()">▶️</button>
+              </div>
+              <div id="mycal-mini-calendar-container"></div>
+            </div>
+
+            <!-- Main View Area -->
+            <div class="mycal-main-view-container">
+              <h2 id="mycal-display-header-title"></h2>
+              <div class="mycal-view-tabs">
+                <button id="mycal-day-btn" class="mycal-tab-btn active"
+                  onclick="saveCurrentScroll();setActiveTab('mycal-day-btn');showDay();">
+                  Day
+                </button>
+
+                <button id="mycal-week-btn" class="mycal-tab-btn"
+                  onclick="saveCurrentScroll();setActiveTab('mycal-week-btn');showWeek();">
+                  Week
+                </button>
+
+                <button id="mycal-month-btn" class="mycal-tab-btn"
+                  onclick="saveCurrentScroll();setActiveTab('mycal-month-btn');showMonth();">
+                  Month
+                </button>
+              </div>
+              <div id="mycal-main-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Task Popup -->
+      <div id="mycal-task-modal" class="mycal-modal-overlay">
+        <div class="mycal-modal-content">
+          <span class="mycal-modal-close" onclick="closeTaskModal()">&times;</span>
+          <h3>Tasks</h3>
+          <div id="mycal-task-modal-details"></div>
+        </div>
+      </div>
+
+
+      <!-- Delete Confirmation -->
+      <div id="mycal-delete-modal" class="mycal-modal-overlay">
+        <div class="mycal-modal-content">
+          <h3>Delete Task?</h3>
+          <p>Are you sure you want to delete this task?</p>
+          <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;">
+            <button class="mycal-btn-danger" onclick="confirmDeleteTask()">
+              Yes
+            </button>
+            <button class="mycal-btn-secondary" onclick="closeDeleteModal()">
+              No
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!--REPORTS------>
+      <!-- DAILY WORK REPORTS PAGE -->
+      <div class="page" id="page-reports">
+        <div class="dwr-main-container">
+          <header class="dwr-header">
+            <div class="dwr-title-area">
+              <h1>📅 Daily Work Report</h1>
+              <p>Daily | Weekly | Monthly Planner</p>
+            </div>
+            <div class="dwr-header-controls">
+              <input type="date" id="dwr-report-date">
+              <button id="dwr-today-btn">Today</button>
+            </div>
+          </header>
+
+          <div class="dwr-tabs-container">
+            <button class="dwr-tab-btn active" data-page="dwr-day-page">Day</button>
+            <button class="dwr-tab-btn" data-page="dwr-week-page">Week</button>
+            <button class="dwr-tab-btn" data-page="dwr-month-page">Month</button>
+          </div>
+
+          <!-- DAY PAGE -->
+          <section id="dwr-day-page" class="dwr-page active">
+            <div class="dwr-toolbar">
+              <button id="dwr-clear-btn" class="dwr-small-btn">🗑 Clear</button>
+              <div class="dwr-export-options">
+                <select id="dwr-day-export-type">
+                  <option value="today">Today</option>
+                  <option value="7days">Last 7 Days</option>
+                  <option value="currentMonth">Current Month</option>
+                  <option value="3months">Last 3 Months</option>
+                  <option value="6months">Last 6 Months</option>
+                  <option value="1year">Last 1 Year</option>
+
+                  <option value="custom">Custom Range</option>
+                </select>
+                <input type="date" id="dwr-day-from-date" style="display:none;">
+                <input type="date" id="dwr-day-to-date" style="display:none;">
+              </div>
+              <button id="dwr-export-csv-btn" class="dwr-small-btn">📤 Export CSV</button>
+              <button id="dwr-print-btn" class="dwr-small-btn">🖨 Print</button>
+            </div>
+
+            <div class="dwr-summary-wrapper">
+
+              <table class="dwr-summary-table">
+                <thead>
+                  <tr>
+                    <th style="width:25%">Project</th>
+                    <th style="width:20%">Total Duration</th>
+                    <th>Remarks</th>
+                  </tr>
+                </thead>
+                <tbody id="dwr-day-summary-body"></tbody>
+              </table>
+            </div>
+
+
+            <div class="dwr-timeline-container">
+              <table class="dwr-timeline-table">
+                <thead>
+                  <tr>
+                    <th style="width: 10%;">Time</th>
+                    <th id="dwr-day-column-header" style="width: 85%;">Schedule Details</th>
+                  </tr>
+                </thead>
+                <tbody id="dwr-day-body"></tbody>
+              </table>
+            </div>
+            <div class="dwr-submit-container">
+              <button id="dwr-submit-report-btn">Submit Day Report</button>
+            </div>
+          </section>
+
+          <!-- WEEK PAGE -->
+          <section id="dwr-week-page" class="dwr-page">
+            <div class="dwr-toolbar">
+
+              <div class="dwr-export-options">
+                <select id="dwr-week-export-type">
+                  <option value="today">Today</option>
+                  <option value="7days">Last 7 Days</option>
+                  <option value="currentMonth">Current Month</option>
+                  <option value="3months">Last 3 Months</option>
+                  <option value="6months">Last 6 Months</option>
+                  <option value="1year">Last 1 Year</option>
+
+                  <option value="custom">Custom Range</option>
+                </select>
+
+                <input type="date" id="dwr-week-from-date" style="display:none;">
+                <input type="date" id="dwr-week-to-date" style="display:none;">
+              </div>
+
+              <button id="dwr-export-week-csv-btn" class="dwr-small-btn">📤 Export CSV</button>
+              <button id="dwr-print-week-btn" class="dwr-small-btn">🖨 Print</button>
+
+            </div>
+            <div class="dwr-summary-wrapper">
+              <table class="dwr-summary-table">
+                <thead>
+                  <tr>
+                    <th style="width:25%">Project</th>
+                    <th style="width:20%">Total Duration</th>
+                    <th>Remarks</th>
+                  </tr>
+                </thead>
+                <tbody id="dwr-week-summary-body"></tbody>
+              </table>
+            </div>
+            <div class="dwr-view-header">
+              <h2>Weekly Planner</h2>
+              <p id="dwr-week-range-label"></p>
+            </div>
+            <div class="dwr-timeline-container">
+              <table class="dwr-timeline-table dwr-week-grid">
+                <thead>
+                  <tr>
+                    <th style="width: 10%;">Time</th>
+                    <th id="dwr-col-sun">Sun</th>
+                    <th id="dwr-col-mon">Mon</th>
+                    <th id="dwr-col-tue">Tue</th>
+                    <th id="dwr-col-wed">Wed</th>
+                    <th id="dwr-col-thu">Thu</th>
+                    <th id="dwr-col-fri">Fri</th>
+                    <th id="dwr-col-sat">Sat</th>
+                  </tr>
+                </thead>
+                <tbody id="dwr-week-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- MONTH PAGE -->
+          <section id="dwr-month-page" class="dwr-page">
+            <div class="dwr-toolbar">
+
+              <div class="dwr-export-options">
+                <select id="dwr-month-export-type">
+                  <option value="today">Today</option>
+                  <option value="7days">Last 7 Days</option>
+                  <option value="currentMonth">Current Month</option>
+                  <option value="3months">Last 3 Months</option>
+                  <option value="6months">Last 6 Months</option>
+                  <option value="1year">Last 1 Year</option>
+
+                  <option value="custom">Custom Range</option>
+                </select>
+
+                <input type="date" id="dwr-month-from-date" style="display:none;">
+                <input type="date" id="dwr-month-to-date" style="display:none;">
+              </div>
+
+              <button id="dwr-export-month-csv-btn" class="dwr-small-btn">📤 Export CSV</button>
+              <button id="dwr-print-month-btn" class="dwr-small-btn">🖨 Print</button>
+
+            </div>
+            <div class="dwr-summary-wrapper dwr-month-summary-scroll">
+              <table class="dwr-summary-table">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Total Duration</th>
+                    <th>Remarks</th>
+                  </tr>
+                </thead>
+                <tbody id="dwr-month-summary-body"></tbody>
+              </table>
+            </div>
+            <div class="dwr-month-day-names">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+            </div>
+
+            <div id="dwr-calendar-grid"></div>
+          </section>
+        </div>
+
+        <!-- TASK MODAL -->
+        <div id="dwr-task-modal" class="dwr-modal-overlay">
+          <div class="dwr-modal-content">
+            <h3 id="dwr-modal-title">Task Details</h3>
+            <div class="dwr-form-group">
+              <label>Task Description</label>
+              <textarea id="dwr-modal-task-text" rows="3"></textarea>
+            </div>
+            <div class="dwr-form-group">
+              <label>Project</label>
+              <select id="dwr-modal-project-select">
+                <option value="">Select Project</option>
+                <option value="Scrum Dashboard">Scrum Dashboard</option>
+                <option value="Modbus">Modbus</option>
+                <option value="ThermoG">ThermoG</option>
+                <option value="Other">Other</option>
+              </select>
+              <p id="dwr-view-project-text" style="display:none;font-weight:bold;margin-top:8px;"></p>
+              <input type="text" id="dwr-modal-other-project" style="display:none;margin-top:10px;">
+            </div>
+            <div class="dwr-form-row">
+              <div class="dwr-form-group">
+                <label>Start Time</label>
+                <select id="dwr-modal-start-time"></select>
+              </div>
+              <div class="dwr-form-group">
+                <label>End Time</label>
+                <select id="dwr-modal-end-time"></select>
+              </div>
+            </div>
+            <!-- <div class="dwr-form-group">
+              <label>Color Theme</label>
+              <div class="dwr-color-options">
+                <label class="dwr-color-radio"><input type="radio" name="dwr-color" value="#7293d3" checked><span
+                    style="background:#7293d3"></span> Blue</label>
+                <label class="dwr-color-radio"><input type="radio" name="dwr-color" value="#f5b994"><span
+                    style="background:#f5b994"></span> Orange</label>
+                <label class="dwr-color-radio"><input type="radio" name="dwr-color" value="#a2d5ab"><span
+                    style="background:#a2d5ab"></span> Green</label>
+                <label class="dwr-color-radio"><input type="radio" name="dwr-color" value="#ffffff"><span
+                    style="background:#ffffff"></span> White</label>
+              </div>
+            </div> -->
+            <div class="dwr-modal-actions">
+              <button id="dwr-modal-delete-btn" class="dwr-danger-btn">Delete</button>
+              <div class="dwr-modal-right-btns">
+                <button id="dwr-modal-cancel-btn" class="dwr-secondary-btn">Cancel</button>
+                <button id="dwr-modal-edit-btn" style="display:none;">Edit</button>
+                <button id="dwr-modal-save-btn">Save Task</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPRINT -->
+      <div class="page" id="page-sprint">
+        <div class="page-title grotesk">Sprint Planning</div>
+        <div class="page-sub">Plan, track, and burn down work per sprint cycle.</div>
+        <div class="toolbar"><button class="btn btn-p" id="btn-add-sprint"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5">
+              <path d="M12 5v14M5 12h14" />
+            </svg> New Sprint</button></div>
+        <div id="sprint-pills" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;"></div>
+        <div id="sprint-hdr" class="gc" style="padding:18px;margin-bottom:16px;"></div>
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start;">
+          <div>
+            <div class="sec">
+              <h2>Sprint Board</h2>
+            </div>
+            <div class="sprint-cols" id="sprint-board"></div>
+          </div>
+          <div class="gc" style="padding:18px;">
+            <div class="sec">
+              <h2>Burndown</h2>
+            </div>
+            <div id="burndown-svg"></div>
+            <div style="display:flex;gap:14px;margin-top:10px;font-size:11px;color:var(--dim);"><span>- -
+                Ideal</span><span style="color:var(--cyan);">— Actual</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUDGET -->
+      <div class="page" id="page-budget">
+        <div class="page-title grotesk">Budget Control</div>
+        <div class="page-sub">Allocated vs spent · Department spend · Employee hourly costs · Sprint burndown.</div>
+        <div class="budget-grid">
+          <div class="gc bcard">
+            <h3>Project Budget</h3>
+            <div id="budget-proj"></div>
+          </div>
+          <div class="gc bcard">
+            <h3>Department Spend</h3>
+            <div id="budget-dept"></div>
+          </div>
+        </div>
+        <div class="budget-grid">
+          <div class="gc bcard">
+            <h3>Employee Cost</h3>
+            <div id="budget-emp"></div>
+          </div>
+          <div class="gc bcard">
+            <h3>Sprint Budget Burndown</h3>
+            <div id="bsp-pills" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;"></div>
+            <div id="budget-burn"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEPARTMENTS -->
+      <div class="page" id="page-departments">
+        <div class="page-title grotesk">Departments</div>
+        <div class="page-sub">Expand each department to see sub-departments, team, and projects.</div>
+        <div class="toolbar"><button class="btn btn-p" id="btn-add-subdept"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5">
+              <path d="M12 5v14M5 12h14" />
+            </svg> Add Sub-Department</button></div>
+        <div id="dept-tree"></div>
+      </div>
+
+      <!-- TEAM -->
+      <div class="page" id="page-team">
+        <div class="page-title grotesk">Team</div>
+        <div class="page-sub">People, roles, departments, work modes and active workload.</div>
+        <div class="toolbar"><button class="btn btn-p" id="btn-add-person"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5">
+              <path d="M12 5v14M5 12h14" />
+            </svg> Add Person</button></div>
+        <div class="gc">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Department</th>
+                  <th>Sub-Department</th>
+                  <th>Work Mode</th>
+                  <th>Reports To</th>
+                  <th>Rate</th>
+                  <th>Active Tasks</th>
+                  <th>Progress</th>
+                </tr>
+              </thead>
+              <tbody id="team-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROCESS FLOW -->
+      <div class="page" id="page-flow">
+        <div class="page-title grotesk">Process Flow</div>
+        <div class="page-sub">How work travels: Department → Sub-Dept → Project → Sprint → Task → Sign-off chain.
+        </div>
+        <div id="flow-root"></div>
+      </div>
+
+      <!-- TEAM ARCHITECTURE -->
+      <div class="page" id="page-arch">
+        <div class="page-title grotesk">Team Architecture</div>
+        <div class="page-sub">Select a project to see its full reporting chain, contributors, and task breakdown.
+        </div>
+        <div id="arch-pills" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;"></div>
+        <div id="arch-root"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODALS -->
+  <div class="overlay" id="m-task">
+    <div class="modal">
+      <h2>Add Task</h2>
+      <div class="msub">Assign to employee, project and sprint.</div>
+      <div class="field"><label>Task name</label><input type="text" id="mt-name" placeholder="e.g. Build checkout UI">
+      </div>
+      <div class="fr">
+        <div class="field"><label>Employee</label><select id="mt-emp"></select></div>
+        <div class="field"><label>Department</label><select id="mt-dept"></select></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Project</label><select id="mt-proj"></select></div>
+        <div class="field"><label>Sprint</label><select id="mt-sprint"></select></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Stage</label><select id="mt-stage">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>In Review</option>
+            <option>Completed</option>
+            <option>On Hold</option>
+          </select></div>
+        <div class="field"><label>Priority</label><select id="mt-pri">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Slot start</label><input type="time" id="mt-s" value="09:00"></div>
+        <div class="field"><label>Slot end</label><input type="time" id="mt-e" value="17:00"></div>
+      </div>
+      <div class="field"><label>Due date</label><input type="date" id="mt-due"></div>
+      <small class="merr" id="mt-err">Name and due date are required.</small>
+      <div class="mact"><button class="btn-cancel" data-close="m-task">Cancel</button><button class="btn-save"
+          id="mt-save">Add Task</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="m-project">
+    <div class="modal">
+      <h2>Add Project</h2>
+      <div class="msub">Create a project with budget and work mode.</div>
+      <div class="field"><label>Project name</label><input type="text" id="mp-name" placeholder="e.g. Brand Relaunch">
+      </div>
+      <div class="fr">
+        <div class="field"><label>Department</label><select id="mp-dept"></select></div>
+        <div class="field"><label>Lead</label><select id="mp-lead"></select></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Allocated ($)</label><input type="number" id="mp-alloc" placeholder="50000"></div>
+        <div class="field"><label>Spent ($)</label><input type="number" id="mp-spent" placeholder="0"></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Work Mode</label><select id="mp-wm">
+            <option>Remote</option>
+            <option>Hybrid</option>
+            <option>On-site</option>
+          </select></div>
+        <div class="field"><label>Target date</label><input type="date" id="mp-due"></div>
+      </div>
+      <small class="merr" id="mp-err">Name and department are required.</small>
+      <div class="mact"><button class="btn-cancel" data-close="m-project">Cancel</button><button class="btn-save"
+          id="mp-save">Add Project</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="m-sprint">
+    <div class="modal">
+      <h2>New Sprint</h2>
+      <div class="msub">Define a sprint cycle, goal, and budget.</div>
+      <div class="field"><label>Sprint name</label><input type="text" id="ms-name" placeholder="e.g. Sprint 14"></div>
+      <div class="field"><label>Goal</label><input type="text" id="ms-goal" placeholder="What ships by end of sprint?">
+      </div>
+      <div class="fr">
+        <div class="field"><label>Start</label><input type="date" id="ms-start"></div>
+        <div class="field"><label>End</label><input type="date" id="ms-end"></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Budget ($)</label><input type="number" id="ms-budget" placeholder="20000"></div>
+        <div class="field"><label>Spent ($)</label><input type="number" id="ms-bspent" placeholder="0"></div>
+      </div>
+      <small class="merr" id="ms-err">Name, start and end are required.</small>
+      <div class="mact"><button class="btn-cancel" data-close="m-sprint">Cancel</button><button class="btn-save"
+          id="ms-save">Create Sprint</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="m-person">
+    <div class="modal">
+      <h2>Add Person</h2>
+      <div class="msub">Add someone to the team with their hourly rate.</div>
+      <div class="field"><label>Name</label><input type="text" id="mpr-name" placeholder="e.g. Divya Kapoor"></div>
+      <div class="fr">
+        <div class="field"><label>Role</label><select id="mpr-role">
+            <option>Director</option>
+            <option>Manager</option>
+            <option>Team Lead</option>
+            <option>Employee</option>
+          </select></div>
+        <div class="field"><label>Department</label><select id="mpr-dept"></select></div>
+      </div>
+      <div class="field"><label>Sub-Department</label><select id="mpr-sub"></select></div>
+      <div class="fr">
+        <div class="field"><label>Work Mode</label><select id="mpr-wm">
+            <option>Remote</option>
+            <option>Hybrid</option>
+            <option>On-site</option>
+          </select></div>
+        <div class="field"><label>Reports to</label><select id="mpr-rep">
+            <option value="">Top level</option>
+          </select></div>
+      </div>
+      <div class="field"><label>Hourly rate ($)</label><input type="number" id="mpr-rate" placeholder="75"></div>
+      <small class="merr" id="mpr-err">Name is required.</small>
+      <div class="mact"><button class="btn-cancel" data-close="m-person">Cancel</button><button class="btn-save"
+          id="mpr-save">Add Person</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="m-subdept">
+    <div class="modal">
+      <h2>Add Sub-Department</h2>
+      <div class="msub">Link a sub-department to a parent department.</div>
+      <div class="field"><label>Name</label><input type="text" id="msd-name" placeholder="e.g. Frontend Development">
+      </div>
+      <div class="fr">
+        <div class="field"><label>Parent Dept</label><select id="msd-parent"></select></div>
+        <div class="field"><label>Lead</label><select id="msd-lead"></select></div>
+      </div>
+      <div class="field"><label>Work Mode</label><select id="msd-wm">
+          <option>Remote</option>
+          <option>Hybrid</option>
+          <option>On-site</option>
+        </select></div>
+      <small class="merr" id="msd-err">Name and parent department are required.</small>
+      <div class="mact"><button class="btn-cancel" data-close="m-subdept">Cancel</button><button class="btn-save"
+          id="msd-save">Add Sub-Dept</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="m-subtask">
+    <div class="modal">
+      <h2>Add Sub-Task</h2>
+      <div class="msub">Break a task into a daily step with hours and status.</div>
+      <div class="field"><label>Parent Task</label><select id="mst-parent"></select></div>
+      <div class="field"><label>Sub-Task Name</label><input type="text" id="mst-name"
+          placeholder="e.g. Review wireframes with client"></div>
+      <div class="fr">
+        <div class="field"><label>Assigned To</label><select id="mst-emp"></select></div>
+        <div class="field"><label>Date</label><input type="date" id="mst-date"></div>
+      </div>
+      <div class="fr">
+        <div class="field"><label>Est. Hours</label><input type="number" id="mst-est" placeholder="2" min="0"
+            step="0.5"></div>
+        <div class="field"><label>Actual Hours</label><input type="number" id="mst-act" placeholder="0" min="0"
+            step="0.5"></div>
+      </div>
+      <div class="field"><label>Status</label><select id="mst-status">
+          <option>To Do</option>
+          <option>In Progress</option>
+          <option>Done</option>
+          <option>Blocked</option>
+        </select></div>
+      <small class="merr" id="mst-err">Name, parent task and date are required.</small>
+      <div class="mact"><button class="btn-cancel" data-close="m-subtask">Cancel</button><button class="btn-save"
+          id="mst-save">Add Sub-Task</button></div>
+    </div>
+  </div>
+  <script src="js/pm.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/reports.js"></script>
+
+</body>
+
+</html>

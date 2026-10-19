@@ -27,8 +27,8 @@ app.use(express.static(path.join(__dirname, "..")));
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "shravyaab10@gmail.com",
-    pass: "fplm lpfe fpuy nkoa",
+    user: "process.env.EMAIL_USER",
+    pass: "process.env.EMAIL_APP_PASSWORD",
   },
 });
 
@@ -79,8 +79,8 @@ app.post("/send-report", async (req, res) => {
     await browser.close();
 
     await transporter.sendMail({
-      from: "shravyaab10@gmail.com",
-      to: "thanushreeik@gmail.com",
+      from: "your-email@gmail.com",
+      to: "recipient@gmail.com",
       subject: `Daily Report - ${date}`,
       text: "Please find the attached Daily Report PDF.",
       attachments: [
